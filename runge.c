@@ -8,3 +8,15 @@ double fun(double x){
     res = 1/(1+25*pow(x,2));
     return res;
 }
+double primerValor(){
+    return -5;
+}
+double segonValor(){
+    return 5;
+}
+char* primerDocument(){
+    return "rungeeq.txt";
+}
+char* segonDocument(){
+    return "rungecheb.txt";
+}

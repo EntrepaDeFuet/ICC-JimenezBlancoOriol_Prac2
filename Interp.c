@@ -6,14 +6,14 @@
 
 int lagrange_eval(double z, int n,double *x,double *y, double *pz){
     double tol,actual;
-    tol =1e-12;
+    tol =pow(10,-12);
 
     for (int i= 0; i < n+1; i++){
         actual = 1;
         for(int j = 0; j < n+1; j++){
 
             if(j != i){
-                if((x[i]-x[j]) < tol){
+                if(fabs(x[i]-x[j]) < tol){
                     return -1;
 
                 }
@@ -25,6 +25,7 @@ int lagrange_eval(double z, int n,double *x,double *y, double *pz){
     return 0;
 }
 int equidistants(int n, double a, double b,double *x){
+
     if((b-a) < 1e-12){
         return -1;
     } else {
