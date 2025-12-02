@@ -10,3 +10,5 @@ double primerValor();
 double segonValor();
 char* primerDocument();
 char* segonDocument();
+double horner(double z, int n, double *x, double *c);
+int difdiv(int n, double *x, double *y);

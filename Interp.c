@@ -43,4 +43,27 @@ int chebsyev(int n, double a, double b, double *x){
             x[i] = ((a+b)/2) + ((b-a)/2)*cos( ((2*i + 1)*M_PI)/(2*(n+1)) );
         }
     }
+    return 0;
+}
+double horner(double z, int n, double *x, double *c){
+    double sum = c[n];
+    double *a;
+    a = (double *) malloc(n*sizeof(double));
+    if(a == null){
+        printf("Error de memòria a Horner.");
+        return -1;
+    }
+    for (int i = 1, i < n+1; i++){
+        a[i] = c[i];
+        for (int j = i+1; j<n+1; j++){
+            for(int k = 0; k < n; k++){
+                a[i] -= c[j]*x[k];
+            }
+        }
+    }
+    for (int i = n-1; i <= 0; i--){
+        sum = sum*z + a[i];
+    }
+    free(a);
+    return sum;
 }
