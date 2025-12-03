@@ -6,8 +6,8 @@
 
 int lagrange_eval(double z, int n,double *x,double *y, double *pz){
     double tol,actual;
-    tol =pow(10,-12);
-
+    tol = 1.e-12;
+    *pz = 0;
     for (int i= 0; i < n+1; i++){
         actual = 1;
         for(int j = 0; j < n+1; j++){
@@ -17,6 +17,7 @@ int lagrange_eval(double z, int n,double *x,double *y, double *pz){
                     return -1;
 
                 }
+
                 actual = actual * (z-x[j]) / (x[i]-x[j]);
             }
         }
@@ -49,11 +50,11 @@ double horner(double z, int n, double *x, double *c){
     double sum = c[n];
     double *a;
     a = (double *) malloc(n*sizeof(double));
-    if(a == null){
+    if(a == NULL){
         printf("Error de memòria a Horner.");
         return -1;
     }
-    for (int i = 1, i < n+1; i++){
+    for (int i = 1; i < n+1; i++){
         a[i] = c[i];
         for (int j = i+1; j<n+1; j++){
             for(int k = 0; k < n; k++){
@@ -67,3 +68,4 @@ double horner(double z, int n, double *x, double *c){
     free(a);
     return sum;
 }
+
