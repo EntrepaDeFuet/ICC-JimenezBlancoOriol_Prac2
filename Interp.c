@@ -68,4 +68,34 @@ double horner(double z, int n, double *x, double *c){
     free(a);
     return sum;
 }
+int difdiv(int n, double *x, double *y){
 
+	double **a = (double**) malloc ((n+1)*sizeof(double*));
+	if (a == NULL){
+		return -1;
+	}
+	for(int i = 0; i < n+1; i++){
+
+		a[i] = (double *) malloc((n+1)*sizeof(double));
+
+		if (a[i] == NULL){
+			return-1;
+		}
+	}
+	for (int i =0 ; i<= n ; i++){
+
+		for (int j =0;j<=i;j++){
+			if(j == 0){
+				a[i][j] = y[i];
+			} else {
+				a[i][j] = (a[i][j-1]-a[i-1][j-1])/(x[i]-x[i-j]);
+			}
+
+		}
+	}
+	for (int i =0; i<=n; i++){
+		y[i]=a[i][i];
+	}	
+
+	return 0;
+}
