@@ -14,9 +14,17 @@ double primerValor(){
 double segonValor(){
     return 1;
 }
-char* primerDocument(){
-    return "exp3eq.txt";
+char* primerDocument(char c){
+    if(c == 'n'){
+        return "newton/exp3eq.txt";
+    }else {
+        return "lagrange/exp3eq.txt";
+    }
 }
-char* segonDocument(){
-    return "exp3cheb.txt";
+char* segonDocument(char c){
+    if(c == 'n'){
+        return "newton/exp3eq,txt";
+    } else {
+        return "exp3cheb.txt";
+    }
 }

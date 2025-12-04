@@ -48,28 +48,14 @@ int chebsyev(int n, double a, double b, double *x){
 }
 double horner(double z, int n, double *x, double *c){
     double sum = c[n];
-    double *a;
-    a = (double *) malloc(n*sizeof(double));
-    if(a == NULL){
-        printf("Error de memòria a Horner.");
-        return -1;
+    for (int i = n; i <= 0; i--){
+        sum = sum*z + c[i];
     }
-    for (int i = 1; i < n+1; i++){
-        a[i] = c[i];
-        for (int j = i+1; j<n+1; j++){
-            for(int k = 0; k < n; k++){
-                a[i] -= c[j]*x[k];
-            }
-        }
-    }
-    for (int i = n-1; i <= 0; i--){
-        sum = sum*z + a[i];
-    }
-    free(a);
+   
     return sum;
 }
 int difdiv(int n, double *x, double *y){
-
+    double tol = 1.e-12;
 	double **a = (double**) malloc ((n+1)*sizeof(double*));
 	if (a == NULL){
 		return -1;
@@ -88,6 +74,9 @@ int difdiv(int n, double *x, double *y){
 			if(j == 0){
 				a[i][j] = y[i];
 			} else {
+                if (fabs(x[i]-x[i-j])< tol){
+                    return -1;
+                }
 				a[i][j] = (a[i][j-1]-a[i-1][j-1])/(x[i]-x[i-j]);
 			}
 

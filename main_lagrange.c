@@ -25,7 +25,7 @@ int main(){
     }
 
     FILE *ftpr;
-    ftpr = fopen(primerDocument(),"w");
+    ftpr = fopen(primerDocument('l'),"w");
 
     if(equidistants(n,a,b,x) == -1){
         printf("No s'ha pogut calcular els punts equidistant del interval [%20.16e,%20.16e]\n",a,b);
@@ -44,7 +44,7 @@ int main(){
         }
     }
     fclose(ftpr);
-    ftpr = fopen(segonDocument(), "w");
+    ftpr = fopen(segonDocument('l'), "w");
 
 
     if(chebsyev(n,a,b,x)== -1){
