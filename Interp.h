@@ -12,3 +12,4 @@ char* primerDocument(char c);
 char* segonDocument(char c);
 double horner(double z, int n, double *x, double *c);
 int difdiv(int n, double *x, double *y);
+char* documentComparador(char c);

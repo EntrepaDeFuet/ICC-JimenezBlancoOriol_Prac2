@@ -28,3 +28,11 @@ char* segonDocument(char c){
         return "exp3cheb.txt";
     }
 }
+char* documentComparador(char c){
+    if(c == 'c'){
+        return "exp3_Cheb_compare.txt";
+    } else {
+        return "exp3_eq_compare.txt";
+    }
+}
+
