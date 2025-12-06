@@ -13,3 +13,6 @@ char* segonDocument(char c);
 double horner(double z, int n, double *x, double *c);
 int difdiv(int n, double *x, double *y);
 char* documentComparador(char c);
+double trap_full(int n, double a, double b);
+double integral();
+double trap_refined(double Tn, int n, double a,double b);

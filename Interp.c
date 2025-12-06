@@ -88,3 +88,23 @@ int difdiv(int n, double *x, double *y){
 
 	return 0;
 }
+double trap_full(int n, double a, double b){
+    double res,h;
+    h = (b-a)/n;
+    res = 0;
+    for (int i = 1; i<n; i++){
+        res += fun(a+i*h);
+    }
+    res += (fun(a)/2) + (fun(b)/2);
+    res = res*h;
+
+    return res;
+}
+double trap_refined(double Tn, int n, double a, double b){
+    double res;
+    res = 0;
+
+
+
+    return res;
+}
