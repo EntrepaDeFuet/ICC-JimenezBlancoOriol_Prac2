@@ -5,7 +5,7 @@
 
 int main(){
 
-    double *x,*y,pz,a,b,*z;
+    double *x,*y,pz,a,b,*z,actual;
     int n,nodes;
     printf("Siusplau indica el grau del polinomi: \n");
     scanf("%d",&n);
@@ -51,7 +51,8 @@ int main(){
                 printf("Es supera la tolerància en el càlcul de Lagrange dels punts equidistants.\n");
                 break;
             } else {
-                fprintf(ftpr,"%20.16e %20.16e %20.16e %20.16e\n",z[j],fun(z[j]),pz,y[j]-pz);
+                actual = fun(z[j]);
+                fprintf(ftpr,"%20.16e %20.16e %20.16e %20.16e\n",z[j],actual,pz,actual-pz);
             }
         }
     }
@@ -73,7 +74,8 @@ int main(){
                 printf("Es supera la tolerància en el càlcul de Lagrange dels punts de Chebsyev.\n");
                 break;
             } else {
-                fprintf(ftpr,"%20.16e %20.16e %20.16e %20.16e\n",z[j],fun(z[j]),pz,y[j]-pz);
+                actual = fun(z[j]);
+                fprintf(ftpr,"%20.16e %20.16e %20.16e %20.16e\n",z[j],actual,pz,actual-pz);
             }
         }
     }

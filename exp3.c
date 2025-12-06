@@ -18,7 +18,7 @@ char* primerDocument(char c){
     if(c == 'n'){
         return "documents/newton/exp3eq.txt";
     }else {
-        return "lagrange/exp3eq.txt";
+        return "documents/lagrange/exp3eq.txt";
     }
 }
 char* segonDocument(char c){
