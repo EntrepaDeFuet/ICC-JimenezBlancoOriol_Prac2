@@ -5,12 +5,13 @@
 
 int  calcul_coef(int n,double *x,double*y){
     double * a;
-     a = (double *) malloc(1000*sizeof(double));
+    int nodes = n+1;
+     a = (double *) malloc(nodes*sizeof(double));
      if(a == NULL){
          printf("Error de memòria a Horner.");
          return -1;
      }
-     for (int i = 1; i < n; i++){
+     for (int i = 0; i < n; i++){
          a[i] = y[i];
          for (int j = i+1; j<=n; j++){
              for(int k = 0; k < n; k++){
@@ -19,6 +20,9 @@ int  calcul_coef(int n,double *x,double*y){
          }
      }
      a[n]= y[n];
+     for(int i =0; i<=n; i++){
+         y[i] = a[i];
+     }
      return 0;
 
 }

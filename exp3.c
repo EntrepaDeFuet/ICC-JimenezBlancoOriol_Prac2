@@ -16,23 +16,23 @@ double segonValor(){
 }
 char* primerDocument(char c){
     if(c == 'n'){
-        return "newton/exp3eq.txt";
+        return "documents/newton/exp3eq.txt";
     }else {
         return "lagrange/exp3eq.txt";
     }
 }
 char* segonDocument(char c){
     if(c == 'n'){
-        return "newton/exp3eq,txt";
+        return "documents/newton/exp3cheb,txt";
     } else {
-        return "exp3cheb.txt";
+        return "documents/lagrange/exp3cheb.txt";
     }
 }
 char* documentComparador(char c){
     if(c == 'c'){
-        return "exp3_Cheb_compare.txt";
+        return "doccuments/compare/exp3_Cheb_compare.txt";
     } else {
-        return "exp3_eq_compare.txt";
+        return "documents/compare/exp3_eq_compare.txt";
     }
 }
 
