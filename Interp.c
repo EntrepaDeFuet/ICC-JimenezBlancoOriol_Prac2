@@ -103,6 +103,7 @@ double trap_full(int n, double a, double b){
 double trap_refined(double Tn, int n, double a, double b){
     double res;
     res = 0;
+    res =((3*integral()) -Tn)/4;
 
 
 

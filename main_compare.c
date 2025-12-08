@@ -104,6 +104,8 @@ int main(){
         free(y);
         free(z);
         free(copiay);
+        fclose(ftpr);
+        return -1;
     }
     if(calcul_coef(n,x,y)==-1){
         printf("Error calculant els coeficients del polinomi de Newton\n");
@@ -111,6 +113,8 @@ int main(){
         free(y);
         free(z);
         free(copiay);
+        fclose(ftpr);
+        return -1;
     }
     maxl = 0;
     maxn = 0;
@@ -122,6 +126,7 @@ int main(){
             free(y);
             free(z);
             free(copiay);
+            fclose(ftpr);
             return -1;
         }
         actual = fun(z[i]);
@@ -134,7 +139,7 @@ int main(){
         }
     }
     printf("El error màxim del polinomi de Lagrange és: %20.16e i el error màxim del polinomi de Newton és: %20.16e \n",maxl,maxn);
-
+    fclose(ftpr);
 
     return 0;
 }

@@ -17,6 +17,7 @@ int main(){
         if(fabs(actual - anterior)< tol){
             printf("S'ha superat la tolerància en el càlcul de |Tn - Tn-1|\n");
             printf("L'error observat en aquesta iteració és de %20.16e \n",fabs(integral()-actual));
+            fclose(ftpr);
             return 0;
         }
         fprintf(ftpr,"%d %20.16e %20.16e %20.16e",n,actual,fabs(actual-anterior),fabs(integral()-actual));
@@ -24,7 +25,7 @@ int main(){
     } 
     printf("L'algorisme ha arribat satisfactòriament a les 1024 iteracions.\n");
     printf("|I - T1024| = %20.16e \n",fabs(integral()-anterior));
-
+    fclose(ftpr);
 
     return 0;
 }

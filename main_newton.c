@@ -80,6 +80,11 @@ int main(){
 
     if(equidistants(n,a,b,x) == -1){
         printf("No s'ha pogut calcular els punts equidistant del interval [%20.16e,%20.16e]\n",a,b);
+        fclose(ftpr);
+        free(x);
+        free(y);
+        free(z);
+        free(copiay);
         return -1;
     }else{
         for (int i = 0; i <= n ; i++){
@@ -90,10 +95,20 @@ int main(){
         }
         if (difdiv(n,x,y) == -1){
             printf("S'ha superat la tolerància calculant les diferències dividides\n");
+            fclose(ftpr);
+            free(x);
+            free(y);
+            free(z);
+            free(copiay);
             return -1;
         }
         if(calcul_coef(n,x,y)== -1){
             printf("Error fent el càlcul de coeficients.\n");
+            fclose(ftpr);
+            free(x);
+            free(y);
+            free(z);
+            free(copiay);
             return -1;
         }
         for (int j = 0; j < 1000; j++){
@@ -109,6 +124,11 @@ int main(){
 
     if(chebsyev(n,a,b,x)== -1){
         printf("No s'ha pogut calcular els punts de Chebsyev del interval [%20.16e,%20.16e]\n",a,b);
+        free(x);
+        free(y);
+        free(z);
+        free(copiay);
+        fclose(ftpr);
         return -1;
     }else{
 
@@ -124,6 +144,7 @@ int main(){
                 free(y);
                 free(copiay);
                 free(z);
+                fclose(ftpr);
                 return -1;
         }
         if(calcul_coef(n,x,y) == -1){
@@ -132,6 +153,7 @@ int main(){
             free(y);
             free(copiay);
             free(z);
+            fclose(ftpr);
             return -1;
         }
         for(int j = 0; j <1000; j++){
@@ -144,6 +166,7 @@ int main(){
     free(y);
     free(copiay);
     free(z);
+    fclose(ftpr);
     return 0;
 
 }

@@ -35,12 +35,21 @@ int main(){
 
     if(equidistants(999,a,b,z) == -1){
         printf("No s'ha pogut calcular els punts equidistant del interval [%20.16e,%20.16e]\n",a,b);
+        free(x);
+        free(y);
+        free(z);
+        return -1;
     }
     FILE *ftpr;
     ftpr = fopen(primerDocument('l'),"w");
 
     if(equidistants(n,a,b,x) == -1){
         printf("No s'ha pogut calcular els punts equidistant del interval [%20.16e,%20.16e]\n",a,b);
+        fclose(ftpr);
+        free(x);
+        free(y);
+        free(z);
+        return -1;
 
     }else{
         for (int i = 0; i < n+1 ; i++){
@@ -62,6 +71,10 @@ int main(){
 
     if(chebsyev(n,a,b,x)== -1){
         printf("No s'ha pogut calcular els punts de Chebsyev del interval [%20.16e,%20.16e]\n",a,b);
+        free(x);
+        free(y);
+        free(z);
+        fclose(ftpr);
         return -1;
     }else{
 
@@ -81,6 +94,8 @@ int main(){
     }
     free(x);
     free(y);
+    free(z);
+    fclose(ftpr);
     return 0;
 
 }
