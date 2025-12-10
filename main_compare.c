@@ -3,7 +3,7 @@
 #include<stdlib.h>
 #include"Interp.h"
 
-int  calcul_coef(int n,double *x,double*y){
+/*int  calcul_coef(int n,double *x,double*y){
     double * a;
     int nodes = n+1;
      a = (double *) malloc(nodes*sizeof(double));
@@ -25,18 +25,19 @@ int  calcul_coef(int n,double *x,double*y){
      }
      return 0;
 
-}
+}*/
 int main(){
-    int n, nodes;
+    int n,sc,nodes;
     double *x,*y,*copiay, *z, nz,lz,actual,maxl,maxn,a,b;
     char c;
-    printf("Siusplau digues el grau del polinomi desitjat: \n");
+    printf("Siusplau digues el grau del polinomi desitjat: ");
     scanf("%d",&n);
     nodes = n+1;
-    printf("Siusplau digues si prefereixes fer servir punts equidistants 'e' o bé punts de Chebyshev 'c'\n");
-    scanf("%c",&c);
-    if(c!= 'c' || c!= 'e'){
-        printf("No t'entenc, calcularé per defecte el Chebyshev \n");
+    printf("Siusplau digues si prefereixes fer servir punts equidistants 0  o bé punts de Chebyshev 1:  ");
+    scanf(" %d",&sc);
+    if(sc == 0){
+        c = 'e';
+    }else{
         c = 'c';
     }
     x = (double *) malloc(nodes*sizeof(double));
@@ -100,15 +101,6 @@ int main(){
 
     if(difdiv(n,x,y)== -1){
         printf("Error calculant les diferències dividides\n");
-        free(x);
-        free(y);
-        free(z);
-        free(copiay);
-        fclose(ftpr);
-        return -1;
-    }
-    if(calcul_coef(n,x,y)==-1){
-        printf("Error calculant els coeficients del polinomi de Newton\n");
         free(x);
         free(y);
         free(z);

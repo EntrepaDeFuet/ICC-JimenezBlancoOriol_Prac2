@@ -88,7 +88,10 @@ int difdiv(int n, double *x, double *y){
 	}*/
     for (int i = 1; i<= n;i++){
         for(int j = 0; j<n-i+1;j++){
-            y[n-j] = (y[n-j] - y[n-j-1])/(x[n-j] - x[n-i]);
+            if(fabs(x[n-j]-x[n-i-j])<tol){
+                return -1;
+            }
+            y[n-j] = (y[n-j] - y[n-j-1])/(x[n-j] - x[n-j-i]);
         }
     }
 
@@ -108,11 +111,14 @@ double trap_full(int n, double a, double b){
     return res;
 }
 double trap_refined(double Tn, int n, double a, double b){
-    double res;
+    double res, h, h2;
     res = 0;
-    res =((3*integral()) -Tn)/4;
-
-
-
+    h = (b-a)/n;
+    h2 = (b-a)/(2*n);
+    res = Tn/h;
+    for(int i = 1; i< 2*n; i+=2){
+        res += fun(a + i*h);
+    }
+    res = res *h2;
     return res;
 }

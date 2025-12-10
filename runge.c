@@ -35,3 +35,6 @@ char * documentComparador(char c){
         return "documents/compare/runge_eq_compare.txt";
     }
 }
+double integral(){
+    return 0.0;
+}

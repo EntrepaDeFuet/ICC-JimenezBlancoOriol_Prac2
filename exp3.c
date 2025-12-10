@@ -30,7 +30,7 @@ char* segonDocument(char c){
 }
 char* documentComparador(char c){
     if(c == 'c'){
-        return "doccuments/compare/exp3_Cheb_compare.txt";
+        return "documents/compare/exp3_Cheb_compare.txt";
     } else {
         return "documents/compare/exp3_eq_compare.txt";
     }

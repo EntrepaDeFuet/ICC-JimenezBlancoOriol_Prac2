@@ -17,9 +17,25 @@ double segonValor(){
 }
 char* primerDocument(char c){
     if(c == 'l'){
-
-    return "documents/lagrange/n2eq.txt";
+        return "documents/lagrange/sin2eq.txt";
+    }else{
+        return "documents/newton/sin2eq.txt";
+    }
 }
 char* segonDocument(char c){
-    return "sin2cheb.txt";
+    if(c == 'l'){
+        return "documents/lagrange/sin2cheb.txt";
+    }else{
+        return "documents/newton/sin2cheb.txt";
+    }
+}
+char* documentComparador(char c){
+    if(c == 'e'){
+        return "documents/compare/n2eq_compare.txt";
+    }else {
+        return"documents/compare/n2Cheb_compare.txt";
+    }
+}
+double integral(){
+    return 0.0;
 }

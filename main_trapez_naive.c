@@ -20,7 +20,7 @@ int main(){
             fclose(ftpr);
             return 0;
         }
-        fprintf(ftpr,"%d %20.16e %20.16e %20.16e",n,actual,fabs(actual-anterior),fabs(integral()-actual));
+        fprintf(ftpr,"%d %20.16e %20.16e %20.16e \n",n,actual,fabs(actual-anterior),fabs(integral()-actual));
         anterior = actual;
     } 
     printf("L'algorisme ha arribat satisfactòriament a les 1024 iteracions.\n");
