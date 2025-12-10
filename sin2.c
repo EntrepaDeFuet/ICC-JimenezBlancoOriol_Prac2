@@ -15,9 +15,11 @@ double primerValor(){
 double segonValor(){
     return M_PI;
 }
-char* primerDocument(){
-    return "sin2eq.txt";
+char* primerDocument(char c){
+    if(c == 'l'){
+
+    return "documents/lagrange/n2eq.txt";
 }
-char* segonDocument(){
+char* segonDocument(char c){
     return "sin2cheb.txt";
 }

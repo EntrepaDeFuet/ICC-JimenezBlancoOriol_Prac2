@@ -6,7 +6,7 @@
 
 
 
-int  calcul_coef(int n,double *x,double*y){
+/*int  calcul_coef(int n,double *x,double*y){
     double * a;
     int nodes = n+1;
      a = (double *) malloc(nodes*sizeof(double));
@@ -28,7 +28,7 @@ int  calcul_coef(int n,double *x,double*y){
      }
      return 0;
 
-}
+}*/
 
 int main(){
 
@@ -102,7 +102,7 @@ int main(){
             free(copiay);
             return -1;
         }
-        if(calcul_coef(n,x,y)== -1){
+       /* if(calcul_coef(n,x,y)== -1){
             printf("Error fent el càlcul de coeficients.\n");
             fclose(ftpr);
             free(x);
@@ -110,7 +110,7 @@ int main(){
             free(z);
             free(copiay);
             return -1;
-        }
+        }*/
         for (int j = 0; j < 1000; j++){
             pz =  horner(z[j],n,x,y);
             actual = fun(z[j]);
@@ -147,7 +147,7 @@ int main(){
                 fclose(ftpr);
                 return -1;
         }
-        if(calcul_coef(n,x,y) == -1){
+        /*if(calcul_coef(n,x,y) == -1){
             printf("Error fent el càlcul de coeficients.\n");
             free(x);
             free(y);
@@ -155,7 +155,7 @@ int main(){
             free(z);
             fclose(ftpr);
             return -1;
-        }
+        }*/
         for(int j = 0; j <1000; j++){
             pz = horner(z[j],n,x,y);
             actual = fun(z[j]);

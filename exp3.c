@@ -23,7 +23,7 @@ char* primerDocument(char c){
 }
 char* segonDocument(char c){
     if(c == 'n'){
-        return "documents/newton/exp3cheb,txt";
+        return "documents/newton/exp3cheb.txt";
     } else {
         return "documents/lagrange/exp3cheb.txt";
     }
@@ -35,4 +35,6 @@ char* documentComparador(char c){
         return "documents/compare/exp3_eq_compare.txt";
     }
 }
-
+double integral(){
+    return 0.0;
+}

@@ -48,14 +48,15 @@ int chebsyev(int n, double a, double b, double *x){
 }
 double horner(double z, int n, double *x, double *c){
     double sum = c[n];
-    for (int i = n; i <= 0; i--){
-        sum = sum*z + c[i];
+    for (int i = n-1; i >= 0; i--){
+        sum = sum*(z-x[i]) + c[i];
     }
-   
+    
     return sum;
 }
 int difdiv(int n, double *x, double *y){
     double tol = 1.e-12;
+    /*
 	double **a = (double**) malloc ((n+1)*sizeof(double*));
 	if (a == NULL){
 		return -1;
@@ -84,7 +85,13 @@ int difdiv(int n, double *x, double *y){
 	}
 	for (int i =0; i<=n; i++){
 		y[i]=a[i][i];
-	}	
+	}*/
+    for (int i = 1; i<= n;i++){
+        for(int j = 0; j<n-i+1;j++){
+            y[n-j] = (y[n-j] - y[n-j-1])/(x[n-j] - x[n-i]);
+        }
+    }
+
 
 	return 0;
 }
